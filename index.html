@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.ico">
+
+    <title>Electric Cloud Open Source</title>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a id = "introRef" href="#">Intro</a></li>
+            <li role="presentation"><a id="pluginsRef" href="#plugins">Plugins</a></li>
+            <li role="presentation"><a href="https://github.com/electriccommunity/">Github</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Welcome to Electric Cloud Open Source</h3>
+      </div>
+
+
+      <img class="img-responsive" src="images/echero_lines_resize.jpg" alt="header image">
+      
+
+      <div class="row marketing">
+        <div class="col-md-8">
+          <h3>We play well with others!</h4>
+          <p> Your software delivery process is unique, and touches many different tools, integrations and environments. Electric Cloud provides centralized management and visibility of your entire software delivery pipeline – whatever these might be – to improve developer productivity, streamline operations and increase efficiency.</p>
+
+    <h3>What is a Plugin?</h3>
+    <p>
+    A plugin is a collection of one or more features that can be added to ElectricFlow. A plugin is delivered as a JAR
+    file containing the feature(s) implementation. When a plugin is installed, the ElectricFlow server extracts the JAR
+    contents to disk into a configurable plugins directory. A plugin has an associated ElectricFlow project that can
+    contain procedures and properties required by the implementation.
+    </p>
+
+    <h3>What can a plugin do?</h3>
+
+    <p>
+    You can add any number of plugins to ElectricFlow, depending on the additional functionality you would like to
+    add to the product. A plugin can add:
+
+    - New tabs for the ElectricFlow UI
+
+    - New product pages - for example, to integrate another software product you want to use in conjunction
+    with ElectricFlow
+
+    - A configuration page, specific to plugin implementation requirements
+
+    - A plugin can contain its own help topic to provide specific information to users about the plugin
+
+    - A re-write of existing tabs or pages to incorporate one or more special functions you need
+
+    - A place where scripts “live” on the web server so other plugins can use them
+
+    Also, it is possible to replace virtually every page in the ElectricFlow UI, with the exception of the ElectricFlow
+    login screen.
+    </p>
+
+    <p> Here are some of the integrations we have developed internally and have contributed back to the community.</p>
+
+        </div>
+
+        <div id="plugins" class="col-md-4">
+          <h3>ElectricFlow Plugins</h4>
+          
+        
+          <p><a href="https://github.com/electriccommunity/EC-Azure">EC-Azure</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-Chef">EC-Chef</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-Docker">EC-Docker</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-EC2">EC-EC2</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-ESX">EC-ESX</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-Gerrit">EC-Gerrit</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-IIS">EC-IIS</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-IIS7">EC-IIS</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-OpenStack">EC-OpenStack</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-Puppet">EC-Puppet</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-S3">EC-S3</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-WebLogic">EC-WebLogic</a></p>
+          <p><a href="https://github.com/electriccommunity/EC-WebSphere">EC-WebSphere</a></p>
+        </div>
+
+        <div class="col-md-12">
+        <h3>Requirements</h4>
+          <p>An Internet Connection</p>
+          <p>Git command line client</p>
+          <p>Java 7+</p>
+          <p>An ElectricFlow Server (v4.2 or above) to develop and test against</p>
+        <br/>
+        <h3>Build process</h4>
+          <p>We use a <a href="https://github.com/electriccommunity/flow-gradle-plugin">gradle plugin</a> to compile, test and install our plugins</p>
+          <p>To compile the plugin</p>
+          <p><pre>./gradlew</pre></p>
+        
+        <br/>
+
+        <h3>Jar file Layout</h3>
+        <p>The plugin JAR file is laid out as follows:</p>
+        <pre>
+plugin.jar/
+
+  META-INF/
+
+    plugin.xml - plugin configuration file. Defines the plugin and includes the plugin name, key, version, and so on.
+
+    project.xml - (optional) project definition file containing procedures and properties to be set automatically during plugin installation. 
+                  If project.xml does not exist, the installation creates an empty ElectricFlow project for the plugin.
+
+  agent/ - (optional) contains files used by steps running on agents. This directory may be structured however you desire.
+           Typically, this directory contains "bin" and "lib" sub-directories.
+
+  htdocs/ - (optional) Apache makes the contents of this directory accessible by using /commander/plugins/{plugin key}-{version}/... 
+            If this is a GWT plugin, the GWT compiler outputs generated JavaScript code to the war subdirectory. 
+            Put images and CSS files in this directory if you want to refer to them in your source code.
+
+  cgi-bin/ - Apache invokes CGI scripts in this directory using /commander/plugins/{plugin key}-{version}/cgi-bin/mycgi.cgi
+
+  pages/ - Apache renders plugin pages located in this directory using /commander/pages/<plugin key or name>/pages/...
+
+
+</pre>
+        <h3>Documentation</h4>
+        <p><a href="http://docs.electric-cloud.com/eflow_doc/6_0/PDF/FlowPluginGuide_6_0.pdf">Our plugin developer's guide</a> gives a lot of information plugin development.</p>
+        
+         <br/>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Electric Cloud 2015</p>
+        <p>Image designed by <a href="http://stephtang.weebly.com/" target="_blank">Stephanie Tang</a></p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    
+  </body>
+</html>
