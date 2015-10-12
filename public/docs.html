@@ -32,7 +32,7 @@
          </div>
          <img class="img-responsive" src="images/echero_lines_resize.jpg" alt="header image">
          <div class="row marketing">
-            <div id="plugins" class="col-md-4">
+          <div id="plugins" class="col-md-4">
                <a href="#quickstart">Quick Start</a>
                <br/>
                <br/>
@@ -42,21 +42,46 @@
                <a href="#buildProcess">Build Process</a>
                <br/>
                <br/>
-               <a href="#gettingStarted"></a>
+			   <a href="#contributing">Getting involved</a>
                <br/>
                <br/>
             </div>
-            <div id="quickstart" class="col-md-8">
-            </div>
-            <div id="buildProcess" class="col-md-8">
-               <h3>
-               Build process</h4>
+		  <div id="content" class="col-md-8">
+            <div id="quickstart">
+			<h3>Quick Start</h3>
+               <p>Quick start intro ...</p>
+				<h4>Checking out from Github</h4>
+			    <p>
+                steps for checking out from github...
+                </p>
+				<h4>Setting up your development environment</h4>
+				   <p>
+					eclipse, command-line or other IDEs
+				   </p>
+			   <h4>Building the plugin jar</h4>
+				   <p>
+				   gradlew ...
+				   </p>
+			   <h4>Making a change to the plugin</h4>
+				<p>running tests and re-building the jar</p>
+			   <h4>Installing your plugin</h4>
+			   <p>
+               Administration->Plugins->Install from File/URL...
+               </p>
+			   <h4>What next?</h4>
+			   <p>
+				Contributing your plugin changes to the electric-cloud community
+               </p>
+			</div>
+			<!-- /quickstart -->
+            <div id="buildProcess">
+               <h3>Build process</h3>
                <p>We use a <a href="https://github.com/electriccommunity/flow-gradle-plugin">gradle plugin</a> to compile, test and install our plugins</p>
                <p>To compile the plugin</p>
                <p>
                <pre>./gradlew</pre>
                </p>
-               <h3>Sample build.gradle file</h3>
+               <h4>Sample build.gradle file</h4>
                <pre>
 // *Groovy*
 // build.gradle
@@ -94,14 +119,17 @@ gwt {
 }
           </pre>
             </div>
-            <div id="gettingStarted" class="col-md-8">
+			<!-- /buildprocess -->
+            <div id="gettingStarted">
             </div>
-         </div>
          <footer class="footer">
             <p>&copy; Electric Cloud 2015</p>
             <p>Image designed by <a href="http://stephtang.weebly.com/" target="_blank">Stephanie Tang</a></p>
          </footer>
-      </div>
+        </div>
+	  <!-- /content -->
+	  </div>
+	  <!-- /row marketing -->
       <!-- /container -->
    </body>
 </html>
