@@ -36,19 +36,19 @@
                <a href="#quickstart">Quick Start</a>
                <br/>
                <br/>
-               <a href="#recommendedTools">Recommended Tools</a>
-               <br/>
-               <br/>
-               <a href="#buildProcess">Build Process</a>
+               <a href="#buildProcess">Build & Deploy</a>
                <br/>
                <br/>
 			   <a href="#contributing">Getting involved</a>
                <br/>
                <br/>
+			   <a href="#moreInformation">More information</a>
+               <br/>
+               <br/>
             </div>
 		  <div id="content" class="col-md-8">
             <div id="quickstart">
-			<h3>Quick Start</h3>
+			<h2>Quick Start</h2>
                <p>This quick start guide will walk you through the steps for enhancing and packaging a hello world ElectricCloud plugin to introduce you to the process of building and developing the ElectricCloud open source plugins.</p>
 			   <p>
                 You will need the following to follow along with the quick start guide:
@@ -134,65 +134,65 @@ print $msg;
 					<img src="images/enhanced_hello_world_result.png" class="img-responsive" alt="Enhanced Hello World result">			   
 				</p>
 			   <br/>
+			   
 			   <h4>Next steps</h4>
 			   <p>
 				We have only just scratched the surface with this Quick Start guide. There is a lot you can do with plugins. You can learn more about the ElectricCloud open source plugins <a href="index.html">here</a>. 
                </p>
+			  <br/>
+              <br/>
 			</div>
 			<!-- /quickstart -->
             <div id="buildProcess">
-               <h3>Build process</h3>
-               <p>We use a <a href="https://github.com/electriccommunity/flow-gradle-plugin">gradle plugin</a> to compile, test and install our plugins</p>
-               <p>To compile the plugin</p>
+               <h2>Building and deploying the plugin</h2>
+               <p>We use a <a href="https://github.com/electric-cloud/flow-gradle-plugin">gradle plugin</a> to compile, test and install our plugins.</p>
+			   </br>
+			   <h4>To clean prior build artifacts</h4>
+			   <p>
+               <pre>gradlew clean</pre>
+               </p>
+			   </br>
+               <h4>To compile the plugin</h4>
                <p>
-               <pre>./gradlew</pre>
+               <pre>gradlew</pre>
                </p>
-               <h4>Sample build.gradle file</h4>
-               <pre>
-// *Groovy*
-// build.gradle
-//
-// Gradle build script for EC-<Plugin Name> plugin.
-//
-// Copyright (c) 2015 Electric Cloud, Inc.
-// All rights reserved
- 
-buildscript {
-repositories {
-maven {
-        url 'http://dl.bintray.com/ecpluginsdev/maven'
-    }
- 
-jcenter()
-}
-dependencies {
-        classpath group: 'com.electriccloud.plugins', name: 'flow-gradle-plugin', version: '+'
-    }
-}
- 
-group = "com.electriccloud"
-description = "Plugins : EC-<Plugin Name>"
-version = "MAJOR.MINOR.PATCH"
- 
-apply plugin: 'flow-gradle-plugin'
- 
-task wrapper(type: Wrapper) {
-  gradleVersion = '2.3'
-}
- 
-gwt {
-  modules 'ecplugins.<Plugin Name>.ConfigurationManagement'
-}
-          </pre>
-            </div>
-			<!-- /buildprocess -->
-            <div id="contributing">
-			<h3>Getting involved</h3>
-			<p>
-                  We value contributions whether it’s documentation, bugfixes, new features or improved test coverage. We follow the GitHub pull request model described <a href="https://help.github.com/articles/using-pull-requests/">here</a>. 
+			   </br>
+			   <h4>Install the plugin</h4>
+			   </br>
+			   <p>
+                 <b>Note</b>: ectool is needed to for this functionality. Find more information on how to install ectool <a href="http://docs.electric-cloud.com/eflow_doc/FlowIndex.html">here</a>.
+			   </p>
+               <p>			   
+				 Set the COMMANDER_HOME environment variable
+			   </p>
+			   <p>
+				 These commands set the COMMANDER_HOME environment variable for the current terminal session and sets it to the default ElectricFlow install directory.
+			   </p>
+			   <p>			   
+				 Windows: <pre>set COMMANDER_HOME=C:\Program Files\Electric Cloud\ElectricCommander</pre>
+				 Linux: <pre>export COMMANDER_HOME=/opt/electriccloud/electriccommander</pre>
                </p>
+			   <p><b>CAUTION:</b> This will install the plugin to the specified ElectricFlow server. It is highly recommended to use a development ElectricFlow server during plugin development.</p>
+			   <pre>gradlew -PcommanderServer=[serverAddress] -PcommanderUser=[userName] -PcommanderPassword=[password] deploy</pre>
+			   
             </div>
 			<!-- /contributing -->
+            <br/>
+            <br/>
+			<div id="contributing">
+			<h2>Getting involved</h2>
+			  <p>
+                  We value contributions whether it’s documentation, bugfixes, new features or improved test coverage. We follow the GitHub pull request model described <a href="https://help.github.com/articles/using-pull-requests/">here</a>. 
+              </p>
+			<br/>
+            <br/>
+			  <h2 id="moreInformation">More information</h2>
+			  <p> <a href="https://guides.github.com/introduction/flow//">The GitHub Flow guide by Github</a> </p>
+			  <p> <a href="https://18f.gsa.gov/2015/03/03/how-to-use-github-and-the-terminal-a-guide/">18F has has a detailed guide on how to use Github and send a pull request.</a> </p>
+            </div>
+			<br/>
+            <br/>
+			
          <footer class="footer">
             <p>&copy; Electric Cloud 2015</p>
          </footer>
