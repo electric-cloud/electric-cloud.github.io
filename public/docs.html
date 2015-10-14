@@ -49,28 +49,94 @@
 		  <div id="content" class="col-md-8">
             <div id="quickstart">
 			<h3>Quick Start</h3>
-               <p>Quick start intro ...</p>
+               <p>This quick start guide will walk you through the steps for enhancing and packaging a hello world ElectricCloud plugin to introduce you to the process of building and developing the ElectricCloud open source plugins.</p>
+			   <p>
+                You will need the following to follow along with the quick start guide:
+				<ul>
+					<li><b>JDK 7 or higher</b> <p>Open a terminal and check the JDK version on your system by running: <pre>java -version</pre> If you do not have the right JDK version, <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">download and install it</a> on your system.</p></li>
+					<li><b>Git or GitHub Desktop</b> <p>You can use Git directly from the command line or you can use GitHub Desktop on Mac and on Windows. Please <a href="https://help.github.com/articles/set-up-git/">install and set up Git</a> and <a href="https://help.github.com/articles/set-up-git/">GitHub Desktop</a>(if required) before continuing with the guide.</p></li>
+					<li><b>Access to an ElectricFlow server</b> <p>We will install a hello world ElectricCloud plugin as part of this quick start guide, so you should have access to a running ElectricFlow server with privileges to install plugins on it.</p></li>
+				</ul>
+                </p>
+				<br/>
 				<h4>Checking out from Github</h4>
 			    <p>
-                steps for checking out from github...
+                The quick start guide uses EC-HelloWorld, a simple hello world plugin, so we start by checking it out from GitHub.
                 </p>
-				<h4>Setting up your development environment</h4>
+				<p>If you are using Git directly, then run the following commands to get the EC-HelloWorld plugin code on your system.
+				<pre>
+mkdir myplugins
+cd myplugins
+git clone https://github.com/electric-cloud/EC-HelloWorld.git</pre>
+				</p>
+				<p>Or, if you are using GitHub Desktop, then you can clone the plugin code by clicking on the <img src="images/github_clone_in_desktop.png" alt="Clone in Desktop"> button in the <a href="https://github.com/electric-cloud/EC-HelloWorld">Github EC-HelloWorld plugin repository</a>.</p>
+			   <br/>
+			   <p>At this point, you should have the complete EC-HelloWorld plugin code on your system in a <i>myplugins/EC-HelloWorld</i> directory with the directory structure looking like this:
 				   <p>
-					eclipse, command-line or other IDEs
+				   <img src="images/plugin_code_structure.png" class="img-responsive" alt="Plugin code structure">			   
 				   </p>
-			   <h4>Building the plugin jar</h4>
+			   </p>
+			   <br/>
+			   <h4>Building the plugin</h4>
 				   <p>
-				   gradlew ...
+				   Go to the <i>myplugins/EC-HelloWorld</i> directory and run the following command.
+				   <pre>gradlew</pre>
+				   Since this is the first time you are building the plugin, it might take close to a minute to build the plugin since the GWT classes need to be compiled. Subsequent builds should not take more than a few seconds to complete.
 				   </p>
-			   <h4>Making a change to the plugin</h4>
-				<p>running tests and re-building the jar</p>
-			   <h4>Installing your plugin</h4>
+				   <p>Once the build has completed successfully, you can find the plugin jar inside <i>build/EC-HelloWorld/</i> within the <i>myplugins/EC-HelloWorld</i> directory.</p>
+				   
+			   <br/>
+			   <h4>Installing the plugin</h4>
+				   <p>Lets do a quick check to make sure that our plugin works as promised before we make our enhancements to the plugin. Start by installing the plugin jar on the ElectricFlow server using these steps:
+				   <ol>
+					   <li>Login to the ElectricFlow server</li>
+					   <li>Go to <b>Automations->Administration->Plugins</b></li>
+					   <li>Select the <b>Install from File/URL</b> tab</li>
+					   <li>Choose the plugin jar file from <i>myplugins/EC-HelloWorld</i> directory and click the <b>Upload</b> button to install the plugin.</li>
+				   </ol>
+				   </p>
+				   <p>Once the plugin is installed, you can view it on the <b>Currently Installed</b> tab on the <b>Plugins</b> page. Lets try out the plugin using the following steps:
+				   <ol>
+					   <li>Click on the <b>EC-HelloWorld</b> plugin link on the <b>Plugins</b> page.</li>
+					   <li>Click on the <b>SayHello</b> procedure.</li>
+					   <li>Select the <b>Run->Run Immediately</b> option.</li>
+				   </ol>
+				   </p>
+				   <p>The plugin procedure job should complete successfully with the expected 'Hello World':
+					   <img src="images/hello_world_result.png" class="img-responsive" alt="Hello World plugin result">			   
+				   </p>
+			   <br/>
+			   <h4>Enhancing the plugin</h4>
+				<p>Now lets make a small enhancement to the plugin code and see how we would build the plugin again with the change and install it.</p>
+			    <p>Start by opening the file <i>myplugins/EC-HelloWorld/src/main/resources/project/procedures/sayHello.pl</i> in your favourite text editor. This is the Perl script that prints 'Hello World' when we run the <b>SayHello</b> procedure. Update the script by adding the first 3 lines before the 'Hello World' message is printed.
+				<pre>
+# Sign the message with the host name of the agent running the procedure
+my $hostName = "$[/myResource/hostName]";
+$msg .= " [Signed] - $hostName";
+
+# Add the above 3 lines before this block
+# Set the message in the job summary as well as print it in the step logs.
+$ec->setProperty("summary", $msg . "\n");
+print $msg;
+</pre> 
+				</p>
+				<p>Lets rebuild and install the plugin now.
+				<ol>
+				<li>Go to the <i>myplugins/EC-HelloWorld</i> directory and run:
+				   <pre>gradlew</pre>
+				   Once the build has completed successfully, you can find the updated plugin jar inside <i>build/EC-HelloWorld/</i> within the <i>myplugins/EC-HelloWorld</i> directory.
+				</li>
+				<li>Install the updated plugin jar on the ElectricFlow server using the steps described earlier.</li>
+				<li>Run the <b>SayHello</b> procedure again.</li>
+				</ol>
+				</p>
+				<p>The plugin procedure job should complete successfully with our enhanced 'Hello World' message:
+					<img src="images/enhanced_hello_world_result.png" class="img-responsive" alt="Enhanced Hello World result">			   
+				</p>
+			   <br/>
+			   <h4>Next steps</h4>
 			   <p>
-               Administration->Plugins->Install from File/URL...
-               </p>
-			   <h4>What next?</h4>
-			   <p>
-				Contributing your plugin changes to the electric-cloud community
+				We have only just scratched the surface with this Quick Start guide. There is a lot you can do with plugins. You can learn more about the ElectricCloud open source plugins <a href="index.html">here</a>. 
                </p>
 			</div>
 			<!-- /quickstart -->
@@ -122,6 +188,7 @@ gwt {
 			<!-- /buildprocess -->
             <div id="contributing">
 			<h3>Getting involved</h3>
+			<p>TBD</p>
             </div>
 			<!-- /contributing -->
          <footer class="footer">
