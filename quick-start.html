@@ -2,8 +2,67 @@
 layout: default
 ---
 
-<div class="home">
 
-    <h1 class="page-heading">QUICK</h1>
+<div class="center-content__text">
+    <h3 class="center-content__title">Quick Start</h3>
+    <p>
+        This quick start guide will walk you through the steps for enhancing and packaging a hello world ElectricCloud plugin to introduce you to the process of building and developing the ElectricCloud open source plugins.
+    </p>
+    <p>
+        You will need the following to follow along with the quick start guide:
+    </p>
+    <ul>
+        <li>
+            <b>JDK 7 or higher</b>
+            <p>
+                Open a terminal and check the JDK version on your system by running:
+            </p>
+
+            {% highlight bash %}java -version{% endhighlight %}
+
+            <p>
+                If you do not have the right JDK version, <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">download and install it</a> on your system.
+            </p>
+        </li>
+        <li>
+            <b>Git or GitHub Desktop</b>
+            <p>
+                You can use Git directly from the command line or you can use GitHub Desktop on Mac and on Windows. Please <a href="https://help.github.com/articles/set-up-git/">install and set up Git</a> and <a href="https://help.github.com/articles/set-up-git/">GitHub Desktop</a> (if required) before continuing with the guide.
+            </p>
+        </li>
+        <li>
+            <b>Access to an ElectricFlow server</b>
+            <p>
+                We will install a hello world ElectricCloud plugin as part of this quick start guide, so you should have access to a running ElectricFlow server with privileges to install plugins on it.
+            </p>
+        </li>
+    </ul>
+
+</div>
+
+<div class="center-content__text">
+    <h3 class="center-content__title">Checking out from Github</h3>
+    <p>
+        The quick start guide uses EC-HelloWorld, a simple hello world plugin, so we start by checking it out from GitHub.
+    </p>
+    <p>
+        If you are using Git directly, then run the following commands to get the EC-HelloWorld plugin code on your system.
+    </p>
+    {% highlight bash %}
+    mkdir myplugins
+    cd myplugins
+    git clone https://github.com/electric-cloud/EC-HelloWorld.git
+    {% endhighlight %}
+
+    <p>
+        Or, if you are using GitHub Desktop, then you can clone the plugin code by clicking on the <img src={{ site.baseurl }}"/assets/github_clone_in_desktop.png" alt="Clone in Desktop" /> button in the <a href="https://github.com/electric-cloud/EC-HelloWorld">Github EC-HelloWorld plugin repository</a>.
+    </p>
+
+    <p>
+        At this point, you should have the complete EC-HelloWorld plugin code on your system in a <i>myplugins/EC-HelloWorld</i> directory with the directory structure looking like this:
+    </p>
+    <p>
+        <img src={{ site.baseurl }}"/assets/plugin_code_structure.png" class="img-responsive" alt="Plugin code structure">
+    </p>
 
 </div>
