@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+
+<div class="center-content__text">
+    <h3 class="center-content__title">Building and deploying the plugin</h3>
+    <p>
+        We use a <a href="https://github.com/electric-cloud/flow-gradle-plugin">gradle plugin</a> to compile, test and install our plugins.
+    </p>
+</div>
+
+<div class="center-content__text">
+    <h3 class="center-content__title">To clean prior build artifacts</h3>
+
+{% highlight bash %}
+gradlew clean
+{% endhighlight %}
+</div>
+
+<div class="center-content__text">
+    <h3 class="center-content__title">To compile the plugin</h3>
+
+{% highlight bash %}
+gradlew
+{% endhighlight %}
+</div>
+
+<div class="center-content__text">
+    <h3 class="center-content__title">Install the plugin</h3>
+
+    <p>
+        <b>Note</b>: ectool is needed to for this functionality. Find more information on how to install ectool <a href="http://docs.electric-cloud.com/eflow_doc/FlowIndex.html">here</a>.
+    </p>
+    <p>
+        Set the COMMANDER_HOME environment variable
+    </p>
+    <p>
+        These commands set the COMMANDER_HOME environment variable for the current terminal session and sets it to the default ElectricFlow install directory.
+    </p>
+
+    <p>Windows:</p>
+
+{% highlight bash %}
+set COMMANDER_HOME=C:\Program Files\Electric Cloud\ElectricCommander
+{% endhighlight %}
+
+    <p>Linux:</p>
+
+{% highlight bash %}
+export COMMANDER_HOME=/opt/electriccloud/electriccommander
+{% endhighlight %}
+
+    <p>
+        <b>CAUTION:</b> This will install the plugin to the specified ElectricFlow server. It is highly recommended to use a development ElectricFlow server during plugin development.
+    </p>
+
+{% highlight bash %}
+gradlew -PcommanderServer=[serverAddress] \
+    -PcommanderUser=[userName] -PcommanderPassword=[password] deploy
+{% endhighlight %}
+
+</div>

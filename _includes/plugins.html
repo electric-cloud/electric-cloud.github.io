@@ -1,0 +1,13 @@
+<div class="plugins">
+    <ul class="plugins__list">
+    {% for plugin in site.data.plugins %}
+
+        <li class="plugins__list-item">
+            <span class="plugins__list-item-icon"></span>
+            <a href="{{plugin.url}}" class="plugins__list-item-name">{{plugin.name}}</a>
+            <a href="{{plugin.url}}" class="plugins__list-item-details"></a>
+        </li>
+
+    {% endfor %}
+    </ul>
+</div>

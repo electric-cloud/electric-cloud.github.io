@@ -1,0 +1,35 @@
+- url: https://github.com/electric-cloud/EC-Azure
+  name: EC-Azure
+
+- url: https://github.com/electric-cloud/EC-Chef
+  name: EC-Chef
+
+- url: https://github.com/electric-cloud/EC-EC2
+  name: EC-EC2
+
+- url: https://github.com/electric-cloud/EC-ESX
+  name: EC-ESX
+
+- url: https://github.com/electric-cloud/EC-Gerrit
+  name: EC-Gerrit
+
+- url: https://github.com/electric-cloud/EC-IIS
+  name: EC-IIS
+
+- url: https://github.com/electric-cloud/EC-IIS7
+  name: EC-IIS7
+
+- url: https://github.com/electric-cloud/EC-OpenStack
+  name: EC-OpenStack
+
+- url: https://github.com/electric-cloud/EC-Puppet
+  name: EC-Puppet
+
+- url: https://github.com/electric-cloud/EC-S3
+  name: EC-S3
+
+- url: https://github.com/electric-cloud/EC-WebLogic
+  name: EC-WebLogic
+
+- url: https://github.com/electric-cloud/EC-WebSphere
+  name: EC-WebSphere
