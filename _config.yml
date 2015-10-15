@@ -2,7 +2,7 @@
 title: Your awesome title
 email: your-email@domain.com
 description: Electric Cloud Opensource
-baseurl: "/electric-cloud.github.io" # the subpath of your site, e.g. /blog/
+baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://electric-cloud.github.io" # the base hostname & protocol for your site
 
 # Build settings
