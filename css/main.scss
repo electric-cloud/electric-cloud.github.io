@@ -99,8 +99,6 @@ body, html {
   &__inner {
     width: 1366px;
     display: flex;
-    padding: 0 10px;
-    margin: 0 auto;
   }
 }
 .menu,
@@ -147,7 +145,7 @@ body, html {
   float: left;
   &__text {
     margin: 25px 0 40px;
-    p, ul, ol {
+    p {
       line-height: 18px;
       font-size: 14px;
       margin-bottom: 20px;
@@ -180,13 +178,6 @@ body, html {
   &__list-item-name {
     font-size: 14px;
     font-weight: bold;
-    color: #000;
-    text-decoration: none;
-
-    &:hover {
-      opacity: .6;
-      text-decoration: underline;
-    }
   }
   &__list-item-icon {
     vertical-align: middle;
