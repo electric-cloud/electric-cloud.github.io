@@ -6,10 +6,10 @@ layout: default
 <div class="center-content__text">
     <h3 class="center-content__title">Quick Start</h3>
     <p>
-        This quick start guide will walk you through the steps for enhancing and packaging a hello world ElectricCloud plugin to introduce you to the process of building and developing the ElectricCloud open source plugins.
+        This Quick Start guide will walk you through the steps for enhancing and packaging a hello world Electric Cloud plugin to introduce you to the process of building and developing the Electric Cloud open source plugins.
     </p>
     <p>
-        You will need the following to follow along with the quick start guide:
+        You will need the following to follow along with the Quick Start guide:
     </p>
     <ul>
         <li>
@@ -33,7 +33,7 @@ layout: default
         <li>
             <b>Access to an ElectricFlow server</b>
             <p>
-                We will install a hello world ElectricCloud plugin as part of this quick start guide, so you should have access to a running ElectricFlow server with privileges to install plugins on it.
+                We will install a hello world Electric Cloud plugin as part of this quick start guide, so you should have access to a running ElectricFlow server with privileges to install plugins on it.
             </p>
         </li>
     </ul>
@@ -46,7 +46,7 @@ layout: default
         The quick start guide uses EC-HelloWorld, a simple hello world plugin, so we start by checking it out from GitHub.
     </p>
     <p>
-        If you are using Git directly, then run the following commands to get the EC-HelloWorld plugin code on your system.
+        If you are using Git directly, run the following commands to get the EC-HelloWorld plugin code on your system.
     </p>
 {% highlight bash %}
 mkdir myplugins
@@ -55,7 +55,7 @@ git clone https://github.com/electric-cloud/EC-HelloWorld.git
 {% endhighlight %}
 
     <p>
-        Or, if you are using GitHub Desktop, then you can clone the plugin code by clicking on the <img src="{{site.baseurl}}/assets/github_clone_in_desktop.png" alt="Clone in Desktop" /> button in the <a href="https://github.com/electric-cloud/EC-HelloWorld">Github EC-HelloWorld plugin repository</a>.
+        Or, if you are using GitHub Desktop, you can clone the plugin code by clicking on the <img src="{{site.baseurl}}/assets/github_clone_in_desktop.png" alt="Clone in Desktop" /> button in the <a href="https://github.com/electric-cloud/EC-HelloWorld">Github EC-HelloWorld plugin repository</a>.
     </p>
 
     <p>
@@ -89,24 +89,24 @@ git clone https://github.com/electric-cloud/EC-HelloWorld.git
     <h3 class="center-content__title">Installing the plugin</h3>
 
     <p>
-        Lets do a quick check to make sure that our plugin works as promised before we make our enhancements to the plugin. Start by installing the plugin jar on the ElectricFlow server using these steps:
+        Let's do a quick check to make sure that our plugin works as promised before we make our enhancements to the plugin. Start by installing the plugin jar on the ElectricFlow server using these steps:
     </p>
 
     <ol>
-        <li>Login to the ElectricFlow server</li>
-        <li>Go to <b>Automations->Administration->Plugins</b></li>
-        <li>Select the <b>Install from File/URL</b> tab</li>
-        <li>Choose the plugin jar file from <i>myplugins/EC-HelloWorld</i> directory and click the <b>Upload</b> button to install the plugin.</li>
+        <li>Log in to the ElectricFlow server.</li>
+        <li>Go to <b>Automations</b> > <b>Administration</b> > <b>Plugins</b>.</li>
+        <li>Select the <b>Install from File/URL</b> tab.</li>
+        <li>Choose the plugin jar file from the <i>myplugins/EC-HelloWorld</i> directory and click <b>Upload</b> to install the plugin.</li>
     </ol>
 
     <p>
-        Once the plugin is installed, you can view it on the <b>Currently Installed</b> tab on the <b>Plugins</b> page. Lets try out the plugin using the following steps:
+        Once the plugin is installed, you can view it on the <b>Currently Installed</b> tab on the <b>Plugins</b> page. Let's try out the plugin using the following steps:
     </p>
 
     <ol>
         <li>Click on the <b>EC-HelloWorld</b> plugin link on the <b>Plugins</b> page.</li>
         <li>Click on the <b>SayHello</b> procedure.</li>
-        <li>Select the <b>Run->Run Immediately</b> option.</li>
+        <li>Select the <b>Run</b> > <b>Run Immediately</b>.</li>
     </ol>
 
     <p>
@@ -118,7 +118,7 @@ git clone https://github.com/electric-cloud/EC-HelloWorld.git
 <div class="center-content__text">
     <h3 class="center-content__title">Enhancing the plugin</h3>
     <p>
-        Now lets make a small enhancement to the plugin code and see how we would build the plugin again with the change and install it.
+        Now let's make a small enhancement to the plugin code and see how we would build the plugin again with the change and install it.
     </p>
     <p>
         Start by opening the file <i>myplugins/EC-HelloWorld/src/main/resources/project/procedures/sayHello.pl</i> in your favourite text editor. This is the Perl script that prints 'Hello World' when we run the <b>SayHello</b> procedure. Update the script by adding the first 3 lines before the 'Hello World' message is printed.
@@ -136,7 +136,7 @@ print $msg;
 {% endhighlight %}
 
     <p>
-        Lets rebuild and install the plugin now.
+        Let's rebuild and install the plugin now.
     </p>
 
     <ol>
@@ -164,6 +164,6 @@ print $msg;
 <div class="center-content__text">
     <h3 class="center-content__title">Next steps</h3>
     <p>
-        We have only just scratched the surface with this Quick Start guide. There is a lot you can do with plugins. You can learn more about the ElectricCloud open source plugins <a href="{{site.baseurl}}/index.html">here</a>.
+        We have only just scratched the surface with this Quick Start guide. There is a lot you can do with plugins. You can learn more about the Electric Cloud open source plugins <a href="{{site.baseurl}}/index.html">here</a>.
     </p>
 </div>
